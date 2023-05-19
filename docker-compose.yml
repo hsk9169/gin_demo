@@ -1,0 +1,31 @@
+version: '3'
+services:
+  db:
+    image: mysql/mysql-server:5.7
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_USER=${DB_USER}
+      - MYSQL_PASSWORD=${DB_PASSWORD}
+      - MYSQL_DATABASE=${DB_NAME}   
+    expose:
+      - "3306"
+    volumes:
+      - dbdata:/var/lib/mysql
+  web:
+    build: . 
+    ports:
+      - "8080:8080"
+    restart: on-failure
+    expose:
+      - "8080"
+    volumes:
+      - .:/usr/src/app
+  cache:
+    image: redis
+    ports:
+      - "6379:6379"
+
+volumes:
+  dbdata:
