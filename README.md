@@ -1,5 +1,5 @@
 ## README
-## Docker Compose 빌드, 실행
+## Docker Compose 빌드, 실행
 ```
 docker-compose up --build
 ```
