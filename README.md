@@ -20,3 +20,8 @@ docker-compose up --build
 * 로그아웃
   * access-token 유효할 때 가능
   * 만료 시 refresh 후 재실행 가능
+## JWT
+* 로그인 세션을 유지하고 API 권한 부여를 위해 사용
+* 클라이언트에 저장, 서버 미들웨어에서 유효성 검사
+* Redis 활용
+ * 로그아웃 시 토큰 무효화를 위해 meta-data 관리
